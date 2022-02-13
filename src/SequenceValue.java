@@ -1,38 +1,32 @@
 import java.util.Scanner;
-
 public class SequenceValue {
     public static void main(String[] args) {
-        int n,a,b,c,k;
+        long n,a,b,c,k;
         Scanner input = new Scanner(System.in);
-        while(true){
-            n = input.nextInt();
-            for (int i = 0; i < n; i++){
-                a = input.nextInt();
-                b = input.nextInt();
-                c = input.nextInt();
-                k = input.nextInt();
-                System.out.println(value(a,b,c,k));
-            }
+        n = input.nextLong();
+        for (int i = 0; i < n; i++) {
+            a = input.nextLong();
+            b = input.nextLong();
+            c = input.nextLong();
+            k = input.nextLong();
+            System.out.println(value(a,b,c,k));
         }
     }
 
-    private static int value(int a, int b, int c, int k) {
-        int result ;
+    private static long value(long a, long b, long c, long k) {
+        long result ;
         //等差数列公式：An = A1 + (n-1)*d （d 为公差）
         //等比数列公式：An = A1 * r^(n-1) （r 为公比）
         //等比数列累乘可能会超时，需要运用快速幂求解幂运算。
-        if ((c-b) == (b-a)){
-            //等差数列
-            result = a + (k-1)*(b-a) % 200920;
-        }
-        else{
-            result = a * qp((b/a),k-1,200920);
+        if((c-b)==(b-a)) {
+            result=(a+(k-1)%200907*(b-a)%200907)%200907;
+        }else {
+            result=a%200907*qp((b/a)%200907,k-1,200907)%200907;
         }
         return result;
     }
-
-    public static int qp(int base,int power,int p){
-        int result = 1;
+    public static long qp(long base,long power,long p){
+        long result = 1;
         while (power > 0) {
             if((power & 1) == 1) {
                 //(power & 1) == 1 等同于 power % 2 == 1 判断是否为奇数
@@ -50,4 +44,5 @@ public class SequenceValue {
         }
         return result;
     }
+
 }
