@@ -1,5 +1,4 @@
 import java.util.Scanner;
-
 public class QuickPower {
 /**
  * 若求某一个指数的最后几位数，几位数，取模数即为 10 的几倍

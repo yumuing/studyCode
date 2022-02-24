@@ -5,19 +5,16 @@ public class PrimeNumbers {
     //要求速度快，2<n<100000000
     public static void primeBNumbers(long b){
         boolean[] flag = new boolean[100000000];
-        for(int i = 2 ;i < b;i++){
-            flag[i] = true;
-        }
         for(int i = 2 ;i * i < b;i++){
             if (flag[i]){
                 //把他所有的倍数都做标记
                 for(int j = i * i; j < b; j += i){
-                    flag[j] = false;
+                    flag[j] = true;
                 }
             }
         }
         for (int i = 2;i < b;i++){
-            if (flag[i]){
+            if (!flag[i]){
                 System.out.println(i);
             }
         }

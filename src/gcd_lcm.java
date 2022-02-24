@@ -7,7 +7,7 @@ public class gcd_lcm {
     // 0 结束最大公约数为12
     // 求最小公倍数
     // lcm(a, b) = (a * b)/gcd(a, b)
-    public  static int gcd(int a, int b){
+    public static int gcd(int a, int b){
         //a>=b
         //辗转相除法
         if (b==0){
