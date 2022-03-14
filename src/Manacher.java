@@ -32,7 +32,7 @@ public class Manacher {
             // 找出i对于后面核心的对称
             int mirror = 2 * center - i;
             if (right > i) {
-                // i 在右边界的范畴内，看看i的对称点的回文串长度，以及i到右边界的长度，取两个较小的那个
+                // i 在右边界的范畴内，看看 i 的对称点的回文串长度，以及i到右边界的长度，取两个较小的那个
                 // 不能溢出之前的边界，否则就得核心拓展
                 len[i] = Math.min(right - i, len[mirror]);
             } else {
